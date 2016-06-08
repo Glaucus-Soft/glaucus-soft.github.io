@@ -4,6 +4,8 @@
 &lt;h2&gt;Opera con volúmenes NTFS en Mac&lt;/h2&gt;
 &lt;p&gt;El formato NTFS es uno de los más usados por Windows para las unidades que tienen más de 4GB de almacenamiento. Este formato es legible por sistemas Windows y Linux (Ubuntu, Debian, Fedora, etc). El problema viene cuando conectamos uno de estos discos duros a un Mac, ya que este sistema solo nos permite leer el contenido de estos discos, pero no nos permite modificar su contenido.&lt;/p&gt;
 &lt;p&gt;Con esta aplicación se acaban estos problemas, ya que nos permite acceder al contenido de esos discos duros con total libertad para editar archivos y carpetas, incluso si estos están en formato NTFS. &lt;/p&gt;
+&lt;h2&gt;Multilenguaje&lt;/h2&gt;
+&lt;p&gt;GMountR proporciona soporte para los idiomas más comunes en la actualidad, adaptándose así a las necesitades de todos los usuarios, independientemente de donde provengan.&lt;/p&gt;
 &lt;h2&gt;Sin instalaciones&lt;/h2&gt;
 &lt;p&gt;GMountR nos ofrece la máxima portabilidad entre sistemas ya que no requiere ningún tipo de instalación, basta con copiar la aplicación en tu Mac y ejecutarla.&lt;/p&gt;
 &lt;h2&gt;Usos más comunes&lt;/h2&gt;
