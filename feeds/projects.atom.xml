@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Glaucus Soft</title><link href="http://www.glaucuss.com/" rel="alternate"></link><link href="http://www.glaucuss.com/feeds/projects.atom.xml" rel="self"></link><id>http://www.glaucuss.com/</id><updated>2016-06-04T11:30:00+02:00</updated><entry><title>GMountR</title><link href="http://www.glaucuss.com/gmountr.html" rel="alternate"></link><published>2016-06-04T11:30:00+02:00</published><author><name>Glaucus</name></author><id>tag:www.glaucuss.com,2016-06-03:gmountr.html</id><summary type="html">&lt;h2&gt;GMountR&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Glaucus Soft</title><link href="http://www.glaucuss.com/" rel="alternate"></link><link href="http://www.glaucuss.com/feeds/projects.atom.xml" rel="self"></link><id>http://www.glaucuss.com/</id><updated>2016-07-25T10:00:00+02:00</updated><entry><title>Imsoma</title><link href="http://www.glaucuss.com/imsoma.html" rel="alternate"></link><published>2016-07-25T10:00:00+02:00</published><author><name>Glaucus</name></author><id>tag:www.glaucuss.com,2016-07-25:imsoma.html</id><summary type="html">&lt;h2&gt;Imsoma&lt;/h2&gt;
+&lt;p&gt;Averigüe la música que se esconde detrás de las imágenes. ¿Nunca te has preguntado cómo suena esto? Toma una foto y descubre como suena. Escucha como suena todo lo que ves. Escucha por fin la banda sonora que te rodea.
+&lt;div class="row"&gt;
+    &lt;div class="6u"&gt;
+        &lt;section&gt;
+            &lt;img class="image feature" src="images/projects/imsoma/captura-1.png" alt="Captura de pantalla" /&gt;
+        &lt;/section&gt;
+    &lt;/div&gt;
+    &lt;div class="6u"&gt;
+        &lt;section&gt;
+            &lt;img class="image feature" src="images/projects/imsoma/captura-2.png" alt="Captura de pantalla" /&gt;
+        &lt;/section&gt;
+    &lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;h2&gt;Fácil y sencillo&lt;/h2&gt;
+&lt;p&gt;Observa lo sencillo que es utilizarlo en el siguiente video:&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.youtube.com/watch?v=4THmckgJRNs"&gt;&lt;img alt="Usando Imsoma" src="http://img.youtube.com/vi/4THmckgJRNs/0.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Descárgatela&lt;/h2&gt;
+&lt;p&gt;Disponible para Android&amp;reg;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://play.google.com/store/apps/details?id=com.glaucuss.applications.imsoma"&gt;&lt;img alt="Descargar" src="images/projects/imsoma/android.png" /&gt;&lt;/a&gt;&lt;/p&gt;</summary><category term="android"></category><category term="image"></category><category term="sound"></category><category term="maker"></category><category term="game"></category></entry><entry><title>GMountR</title><link href="http://www.glaucuss.com/gmountr.html" rel="alternate"></link><published>2016-06-04T11:30:00+02:00</published><author><name>Glaucus</name></author><id>tag:www.glaucuss.com,2016-06-03:gmountr.html</id><summary type="html">&lt;h2&gt;GMountR&lt;/h2&gt;
 &lt;p&gt;Trabaja con tus discos duros NTFS en sistemas operativos Mac. Olvídate de instalar utilidades y software de terceros que cuestan una fortuna. Con esta aplicación podrás abrir y modificar el contenido de todo tipo de volúmenes con tu Mac, independientemente del formato que tengan&lt;/p&gt;
 &lt;h2&gt;Opera con volúmenes NTFS en Mac&lt;/h2&gt;
 &lt;p&gt;El formato NTFS es uno de los más usados por Windows para las unidades que tienen más de 4GB de almacenamiento. Este formato es legible por sistemas Windows y Linux (Ubuntu, Debian, Fedora, etc). El problema viene cuando conectamos uno de estos discos duros a un Mac, ya que este sistema solo nos permite leer el contenido de estos discos, pero no nos permite modificar su contenido.&lt;/p&gt;
