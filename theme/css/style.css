@@ -7,6 +7,36 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
+ul.dropotron{
+	list-style: none;
+}
+
+.miniatura_imagen_pagina{
+	width: 10%;
+}
+
+.enlace-sin-decoracion{
+	text-decoration: none;
+	border-bottom: none;
+	border-top: none;
+}
+
+.referencia-articulo{
+	padding: 20px;
+	overflow: auto;
+}
+
+.referencia-articulo:hover {
+	background: #eee;
+	cursor: pointer;
+}
+
+.referencia-articulo img{
+	float: left;
+	margin: 0 15px 0 0;
+	width: 20%;
+}
+
 /* Basic */
 
 	body, #skel-layers-wrapper {
