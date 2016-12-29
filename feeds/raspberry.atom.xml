@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Glaucus Soft - Raspberry</title><link href="http://www.glaucussoft.com/" rel="alternate"></link><link href="http://www.glaucussoft.com/feeds/raspberry.atom.xml" rel="self"></link><id>http://www.glaucussoft.com/</id><updated>2016-12-29T12:00:00+01:00</updated><entry><title>Reproductor de música AirPlay con raspberry pi</title><link href="http://www.glaucussoft.com/musica-airplay-raspberry-pi.html" rel="alternate"></link><published>2016-12-29T12:00:00+01:00</published><updated>2016-12-29T12:00:00+01:00</updated><author><name>Glaucus Soft</name></author><id>tag:www.glaucussoft.com,2016-12-29:/musica-airplay-raspberry-pi.html</id><summary type="html">&lt;p&gt;Reproductor de música AirPlay con raspberry pi&amp;reg;&lt;/p&gt;</summary><content type="html">&lt;h2&gt;Reproductor de música AirPlay utilizando una raspberry pi&lt;/h2&gt;
+&lt;p&gt;Muchos son los usos que le podemos dar a una placa raspberry pi, pero sin duda alguna uno de los más interesantes es darle la funcionalidad de reproductor de música mediante AirPlay. Este método te permite conectar tu smartphone, tablet o tu ordenador a la raspberry mediante la red inalámbrica de tu hogar para reproducir en ella, en este caso, la música del dispositivo.&lt;/p&gt;
+&lt;p&gt;Para conseguir configurar nuestra raspberry pi como un reproductor de audio por AirPlay debemos seguir una serie de pasos enumerados a continuación&lt;/p&gt;
+&lt;h3&gt;Actualizar repositorios&lt;/h3&gt;
+&lt;p&gt;Lo primero es comprobar las actualizaciones de software disponibles y en caso de que las haya, aplicarlas al sistema.
+&lt;p class="highlight"&gt;sudo apt-get update -y &amp;amp;&amp;amp; sudo apt-get upgrade -y&lt;/p&gt;&lt;/p&gt;
+&lt;h3&gt;Instalación de dependencias&lt;/h3&gt;
+&lt;p&gt;Después de actualizar todos los repositorios debemos tener instalados en el sistema una serie de paquetes de los cuales dependerá el software que se encarga de hacer el AirPlay en nuestro dispositivo.
+&lt;p class="highlight"&gt;sudo apt-get install git libao-dev libssl-dev libcrypt-openssl-rsa-perl libio-socket-inet6-perl libwww-perl avahi-utils libmodule-build-perl&lt;/p&gt;&lt;/p&gt;
+&lt;h3&gt;Instalar Shairport&lt;/h3&gt;
+&lt;p&gt;Shairport es el software que nos va a emular el AirPlay en nuestra raspberry pi, para ello descargamos el proyecto y lo compilamos.
+&lt;p class="highlight"&gt;git clone https://github.com/hendrikw82/shairport.git&lt;/p&gt;
+&lt;p class="highlight"&gt;cd shairport&lt;/p&gt;
+&lt;p class="highlight"&gt;make&lt;/p&gt;&lt;/p&gt;
+&lt;p&gt;Y por último para ejecutar el servicio AirPlay y que se mantenga a la escucha de peticiones por parte de tu smartphone, tablet o tu ordenador.
+&lt;p class="highlight"&gt;./shairport.pl -a NombreDeTuAirPlay&lt;/p&gt;&lt;/p&gt;
+&lt;h3&gt;Sugerencias&lt;/h3&gt;
+&lt;p&gt;Al arrancarse Shairport como un proceso, cuando cerremos el terminal con el que se arranca o al reiniciar el sistema tendremos que estar constantemente ejecutando el comando anterior y teniendo una consola abierta. Para remediar esto podemos añadir una tarea programada a nuestro sistema para que Shairport se siga ejecutando siempre. Para ello vamos a ejecutar el siguiente comando.
+&lt;p class="highlight"&gt;crontab -e&lt;/p&gt;&lt;/p&gt;
+&lt;p&gt;y posteriormente añadimos al final del todo la siguiente linea.
+&lt;p class="highlight"&gt;@reboot /home/pi/shairport/shairport.pl -a NombreDeTuAirPlay&lt;/p&gt;&lt;/p&gt;
+&lt;p&gt;donde /home/pi/shairport/ es la ruta en la cual se encuentran alojados los ficheros del proyecto Shairport (donde nos lo descargamos anteriormente) y NombreDeTuAirPlay sería el nombre por el que buscaremos a nuestra raspberry pi cuando queramos hacer uso del AirPlay.&lt;/p&gt;</content><category term="raspberry"></category><category term="rasbperry pi"></category><category term="wireless"></category><category term="wifi"></category><category term="network"></category><category term="airplay"></category><category term="music"></category></entry><entry><title>Configurar red raspberry pi server</title><link href="http://www.glaucussoft.com/configurar-red-raspberry-pi-server.html" rel="alternate"></link><published>2016-12-28T22:00:00+01:00</published><updated>2016-12-28T22:00:00+01:00</updated><author><name>Glaucus Soft</name></author><id>tag:www.glaucussoft.com,2016-12-28:/configurar-red-raspberry-pi-server.html</id><summary type="html">&lt;p&gt;Configurar la conexión a red wifi en raspberry pi por línea de comandos&amp;reg;&lt;/p&gt;</summary><content type="html">&lt;h2&gt;Configuración de conexión wifi en raspberry pi mediante terminal&lt;/h2&gt;
+&lt;p&gt;Cuando un usuario estándar adquiere una placa raspberry pi lo más probable es que la use con una distribución que ya posee entorno de escritorio gráfico (Raspbian con interfaz Pixel, OSMC, Ubuntu Mate, entre otros). Pues bien, en estos sistemas es muy sencillo configurar la conexión a la red mediante wifi debido a que tenemos un asistente gráfico que nos guía.&lt;/p&gt;
+&lt;p&gt;El problema viene cuando somos usuarios más avanzados y escogemos un sistema operativo que no tiene entorno gráfico de usuario y con el que tenemos que realizar todas las operaciones mediante comandos en el terminal. La solución es aplicar tan solo estos simples pasos cada vez que queramos conectarnos a una red inalámbrica nueva:&lt;/p&gt;
+&lt;h2&gt;Localización del archivo de configuración&lt;/h2&gt;
+&lt;p&gt;Lo primero que tenemos que hacer es localizar el archivo de configuración que almacena todos los datos de las redes inalámbricas configuradas en nuestra raspberry pi. Este archivo es &lt;p class="highlight"&gt;/etc/wpa_supplicant/wpa_supplicant.conf&lt;/p&gt;&lt;/p&gt;
+&lt;h2&gt;Configuración de la red inalámbrica&lt;/h2&gt;
+&lt;p&gt;Una vez abierto dicho archivo de configuración con el editor de texto que más nos guste, las redes se configuran en su interior de la siguiente manera 
+    &lt;p class="highlight"&gt;
+        network={
+            ssid="NombreDeLaRed"
+            psk="ClaveDeRed"
+        }
+    &lt;/p&gt;&lt;/p&gt;
+&lt;p&gt;De manera que si tenemos una red que se llama RedInalambrica1 y su contraseña es 123456, el archivo de configuración quedaría asi
+    &lt;p class="highlight"&gt;
+        network={
+            ssid="RedInalambrica1"
+            psk="123456"
+        }
+    &lt;/p&gt;&lt;/p&gt;
+&lt;h2&gt;Aplicar los cambios&lt;/h2&gt;
+&lt;p&gt;Una vez guardados los cambios en dicho fichero de configuración es necesario reiniciar la red, para ello emplearemos los siguientes comandos
+    &lt;p class="highlight"&gt;sudo ifdown wlan0&lt;/p&gt;
+    &lt;p class="highlight"&gt;sudo ifup wlan0&lt;/p&gt;&lt;/p&gt;
+&lt;p&gt;y listo, ya tendríamos nuestra raspberry pi con entorno de comandos conectada a nuestra red inalámbrica.&lt;/p&gt;</content><category term="raspberry"></category><category term="rasbperry pi"></category><category term="wireless"></category><category term="wifi"></category><category term="network"></category></entry></feed>

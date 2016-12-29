@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+	<!-- favicon -->
+	<link rel="shortcut icon" type="image/png" href="http://www.glaucussoft.com/theme/images/favicon.png">
+	<link rel="shortcut icon" type="image/x-icon" href="http://www.glaucussoft.com/favicon.ico">
+    <!--[if lte IE 8]><script src="http://www.glaucussoft.com/theme/css/ie/html5shiv.js"></script><![endif]-->
+    <script src="http://www.glaucussoft.com/theme/js/jquery.min.js"></script>
+    <script src="http://www.glaucussoft.com/theme/js/jquery.dropotron.min.js"></script>
+    <script src="http://www.glaucussoft.com/theme/js/skel.min.js"></script>
+    <script src="http://www.glaucussoft.com/theme/js/skel-layers.min.js"></script>
+    <script src="http://www.glaucussoft.com/theme/js/init.js"></script>
+    <link rel="stylesheet" href="http://www.glaucussoft.com/theme/css/pygment.css" />
+    <noscript>
+        <link rel="stylesheet" href="http://www.glaucussoft.com/theme/css/skel.css" />
+        <link rel="stylesheet" href="http://www.glaucussoft.com/theme/css/style.css" />
+        <link rel="stylesheet" href="http://www.glaucussoft.com/theme/css/style-noscript.css" />
+		<!-- Carousel -->
+		<link rel="stylesheet" type="text/css" href="http://www.glaucussoft.com/theme/slick/slick.css"/>
+		<link rel="stylesheet" type="text/css" href="http://www.glaucussoft.com/theme/slick/slick-theme.css"/>
+    </noscript>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Anonymous+Pro:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css" >
+    <!--[if lte IE 8]><link rel="stylesheet" href="http://www.glaucussoft.com/theme/css/ie/v8.css" /><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="http://www.glaucussoft.com/theme/css/ie/v9.css" /><![endif]-->
+
+    <title>Configurar red raspberry pi server | Glaucus Soft </title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width">
+	<meta name="google-site-verification" content="kdgqOmfjzZSRTXU4i2rtJdUs6sfs8HdMNPXCtoTBMrw" />
+</head>
+
+<body class=" loading">
+
+
+
+    <!-- Header -->
+    <header id="header" >
+        <h1 class="image logo">
+			<a href="http://www.glaucussoft.com"><img src="http://www.glaucussoft.com/images/logo.png" alt="" /><span>Glaucus Soft</span></a>
+            <!-- <a href="http://www.glaucussoft.com">Glaucus Soft</a> -->
+        </h1>
+        <nav id="nav">
+            <ul>
+                <!-- <li class="current"><a href="index.html">Welcome</a></li> -->
+				<li class="submenu">
+                    <a href="#s_projects">Proyectos</a>
+                    <ul>
+                            <li >
+                                <a href="http://www.glaucussoft.com/pages/gmountr.html">GMountR</a>
+                            </li>
+                            <li >
+                                <a href="http://www.glaucussoft.com/pages/gshare.html">GShare</a>
+                            </li>
+                            <li >
+                                <a href="http://www.glaucussoft.com/pages/imsoma.html">Imsoma</a>
+                            </li>
+                            <li >
+                                <a href="http://www.glaucussoft.com/pages/monitor.html">Monitor Procesos</a>
+                            </li>
+                    </ul>
+                </li>
+                <li class="submenu">
+                    <a href="http://www.glaucussoft.com/">Blog</a>
+                    <ul>
+                            <li class="active">
+                                <a href="http://www.glaucussoft.com/category/raspberry.html">Raspberry</a>
+                            </li>
+                            <li >
+                                <a href="http://www.glaucussoft.com/category/windows.html">Windows</a>
+                            </li>
+                    </ul>
+                </li>
+				<!--
+                <li><a href="#" class="button special">Sign Up</a></li>
+				-->
+            </ul>
+        </nav>
+    </header>
+
+<!-- Main -->
+<article id="main">
+
+  <header class="special container">
+		<img src="images/blog/raspberry-pi-logo.png" alt="" />
+    <h2>Configurar red raspberry pi server</h2>
+    <!-- add page sub title here -->
+		<p>Publicado el mi. 28 diciembre 2016 por Glaucus Soft</p>
+		<p></p>
+  </header>
+
+  <!-- One -->
+    <section class="wrapper style4 container">
+
+      <!-- Content -->
+        <div class="content">
+          <section>
+				<!-- <a href="#" class="image feature"><img src="images/pic04.jpg" alt="" /></a> -->
+				<h3>Publicado en <a href="category/raspberry.html">Raspberry</a></h3>
+				<p class="tags">
+					Tags: 
+						<a href="http://www.glaucussoft.com/tag/raspberry.html">raspberry</a>
+						<a href="http://www.glaucussoft.com/tag/rasbperry-pi.html">rasbperry pi</a>
+						<a href="http://www.glaucussoft.com/tag/wireless.html">wireless</a>
+						<a href="http://www.glaucussoft.com/tag/wifi.html">wifi</a>
+						<a href="http://www.glaucussoft.com/tag/network.html">network</a>
+</p>
+				<p><h2>Configuración de conexión wifi en raspberry pi mediante terminal</h2>
+<p>Cuando un usuario estándar adquiere una placa raspberry pi lo más probable es que la use con una distribución que ya posee entorno de escritorio gráfico (Raspbian con interfaz Pixel, OSMC, Ubuntu Mate, entre otros). Pues bien, en estos sistemas es muy sencillo configurar la conexión a la red mediante wifi debido a que tenemos un asistente gráfico que nos guía.</p>
+<p>El problema viene cuando somos usuarios más avanzados y escogemos un sistema operativo que no tiene entorno gráfico de usuario y con el que tenemos que realizar todas las operaciones mediante comandos en el terminal. La solución es aplicar tan solo estos simples pasos cada vez que queramos conectarnos a una red inalámbrica nueva:</p>
+<h2>Localización del archivo de configuración</h2>
+<p>Lo primero que tenemos que hacer es localizar el archivo de configuración que almacena todos los datos de las redes inalámbricas configuradas en nuestra raspberry pi. Este archivo es <p class="highlight">/etc/wpa_supplicant/wpa_supplicant.conf</p></p>
+<h2>Configuración de la red inalámbrica</h2>
+<p>Una vez abierto dicho archivo de configuración con el editor de texto que más nos guste, las redes se configuran en su interior de la siguiente manera 
+    <p class="highlight">
+        network={
+            ssid="NombreDeLaRed"
+            psk="ClaveDeRed"
+        }
+    </p></p>
+<p>De manera que si tenemos una red que se llama RedInalambrica1 y su contraseña es 123456, el archivo de configuración quedaría asi
+    <p class="highlight">
+        network={
+            ssid="RedInalambrica1"
+            psk="123456"
+        }
+    </p></p>
+<h2>Aplicar los cambios</h2>
+<p>Una vez guardados los cambios en dicho fichero de configuración es necesario reiniciar la red, para ello emplearemos los siguientes comandos
+    <p class="highlight">sudo ifdown wlan0</p>
+    <p class="highlight">sudo ifup wlan0</p></p>
+<p>y listo, ya tendríamos nuestra raspberry pi con entorno de comandos conectada a nuestra red inalámbrica.</p></p>
+          </section>
+        </div>
+
+    </section>
+
+    <!-- Two -->
+    <!--     <section class="wrapper style1 container special">
+        <div class="row">
+          <div class="4u">
+
+            <section>
+			<a class="enlace-sin-decoracion" href="http://www.glaucussoft.com/musica-airplay-raspberry-pi.html"><img class="miniatura_imagen_pagina" src="/images/blog/raspi-shairport.png" alt="" /></a>
+              <header>
+                <a href="http://www.glaucussoft.com/musica-airplay-raspberry-pi.html" rel='bookmark'><h3>Reproductor de música AirPlay con raspberry pi</h3></a>
+              </header>
+			  <p><p>Reproductor de música AirPlay con raspberry pi&reg;</p></p>
+            </section>
+
+          </div>
+          <div class="4u">
+
+            <section>
+			<a class="enlace-sin-decoracion" href="http://www.glaucussoft.com/configurar-red-raspberry-pi-server.html"><img class="miniatura_imagen_pagina" src="/images/blog/raspberry-pi-logo.png" alt="" /></a>
+              <header>
+                <a href="http://www.glaucussoft.com/configurar-red-raspberry-pi-server.html" rel='bookmark'><h3>Configurar red raspberry pi server</h3></a>
+              </header>
+			  <p><p>Configurar la conexión a red wifi en raspberry pi por línea de comandos&reg;</p></p>
+            </section>
+
+          </div>
+          <div class="4u">
+
+            <section>
+			<a class="enlace-sin-decoracion" href="http://www.glaucussoft.com/iniciar-con-windows.html"><img class="miniatura_imagen_pagina" src="/images/blog/start_button.png" alt="" /></a>
+              <header>
+                <a href="http://www.glaucussoft.com/iniciar-con-windows.html" rel='bookmark'><h3>Iniciar con Windows</h3></a>
+              </header>
+			  <p><p>Sencillo metodo para iniciar aplicaciones a la vez que arranca Windows&reg;</p></p>
+            </section>
+
+          </div>
+        </div>
+    </section> -->
+
+  </article>
+
+
+
+<!-- Footer -->
+<footer id="footer">
+
+    <ul class="icons">
+        <li>
+          <a href="https://twitter.com/GlaucusSoft" target="_blank" class="icon circle fa fa-twitter"><span class="label">twitter</span></a>
+        </li>
+        <li>
+          <a href="https://www.facebook.com/Glaucus-Soft-262164514127427/" target="_blank" class="icon circle fa fa-facebook"><span class="label">facebook</span></a>
+        </li>
+    </ul>
+
+    <span class="copyright">&copy; Glaucus Soft. Todos los derechos reservados. Diseño basado en: <a href="https://html5up.net/twenty">HTML5 UP - Twenty</a>.</span>
+
+</footer>
+</body>
+</html>
