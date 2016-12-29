@@ -21,6 +21,26 @@ ul.dropotron{
 	border-top: none;
 }
 
+.categoria-img{
+	float: left;
+	padding: 0 15px 0 0;
+	width: 20%;
+}
+
+.categoria-img img{
+	max-width: 200px;
+	max-height: 100px;
+	width: auto;
+	height: auto;
+	display: block;
+	margin: 0 auto;
+}
+
+.categoria-texto{
+	width: 80%;
+	float: left;
+}
+
 .referencia-articulo{
 	padding: 20px;
 	overflow: auto;
@@ -29,12 +49,6 @@ ul.dropotron{
 .referencia-articulo:hover {
 	background: #eee;
 	cursor: pointer;
-}
-
-.referencia-articulo img{
-	float: left;
-	margin: 0 15px 0 0;
-	width: 20%;
 }
 
 /* Basic */
