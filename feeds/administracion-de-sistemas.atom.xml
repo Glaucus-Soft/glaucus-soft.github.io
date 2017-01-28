@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Glaucus Soft - Administración de sistemas</title><link href="http://www.glaucussoft.com/" rel="alternate"></link><link href="http://www.glaucussoft.com/feeds/administracion-de-sistemas.atom.xml" rel="self"></link><id>http://www.glaucussoft.com/</id><updated>2017-01-18T11:00:00+01:00</updated><entry><title>Apache sobre SSL</title><link href="http://www.glaucussoft.com/apache-sobre-ssl.html" rel="alternate"></link><published>2017-01-18T11:00:00+01:00</published><updated>2017-01-18T11:00:00+01:00</updated><author><name>Glaucus Soft</name></author><id>tag:www.glaucussoft.com,2017-01-18:/apache-sobre-ssl.html</id><summary type="html">&lt;p&gt;Configurar servicio Apache para que funcione sobre ssl (https)&amp;reg;&lt;/p&gt;</summary><content type="html">&lt;h2&gt;Introducción&lt;/h2&gt;
+&lt;p&gt;Cuando hablamos de seguridad, en lo que a servidores de páginas web respecta, hablamos del protocolo https. Https es importante ya que nos proporciona un cifrado punto a punto (desde el servidor hasta el cliente) de las comunicaciones entre ambos, de forma que si alguien nos ataca e intercepta un paquete de red no pueda descifrarlo. Esto es útil cuando en nuestro sitio web se manejan contraseñas y credenciales de acceso susceptibles a ataques. Por ello es una medida de seguridad muy a tener en cuenta y hoy vamos a explicar como se instala en nuestros servidores, en nuestro caso usaremos Ubuntu Server.&lt;/p&gt;
+&lt;h2&gt;Creación de un certificado SSL autofirmado&lt;/h2&gt;
+&lt;p&gt;Las empresas de importantes y las grandes entidades suelen usar certificados SSL expedidos por la FNMT (Fábrica Nacional de Moneda y Timbre), que es una entidad cuyos certificados están reconocidos por los navegadores web y son oficiales. Para nuestro caso lo que pretendemos es simplemente cifrar el tráfico http por lo cual no nos hace falta solicitar dicho certificado oficial, basta con generar el nuestro de la siguiente manera&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/certificado.key -out /etc/ssl/certs/certificado.crt
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Los rasgos más importantes son los siguientes:
+&lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;-days&lt;/strong&gt; que especifica el número de días que es válido el certificado (en nuestro caso 365 días).&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;-keyout&lt;/strong&gt; que especifica la ruta donde se guarda el certificado.&lt;/li&gt;
+&lt;/ul&gt;&lt;/p&gt;
+&lt;h2&gt;Habilitar cambios en el servicio Apache2&lt;/h2&gt;
+&lt;p&gt;Para que nuestro servidor Apache pueda interpretar dicho certificado y usarlo debemos habilitar varios de sus modulos&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo a2enmod ssl &amp;amp;&amp;amp; sudo a2enmod headers
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Habilitar el uso de SSL en nuestro sitio web&lt;/h2&gt;
+&lt;p&gt;Ahora vamos a habilitar en nuestro archivo de virtualhost por defecto el uso de SSL&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo nano /etc/apache2/sites-available/default-ssl.conf
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Y debería quedar de la siguiente manera:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;IfModule&lt;/span&gt; &lt;span class="err"&gt;mod_ssl.c&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;VirtualHost&lt;/span&gt; &lt;span class="err"&gt;_default_:443&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+        ServerAdmin tudirecciondecorreo@dominio.tld
+        ServerName dominio_o_IP
+        DocumentRoot /var/www/html
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+        SSLEngine on
+        SSLCertificateFile /etc/ssl/certs/certificado.crt
+        SSLCertificateKeyFile /etc/ssl/private/certificado.key
+        &lt;span class="nt"&gt;&amp;lt;FilesMatch&lt;/span&gt; &lt;span class="err"&gt;&amp;quot;\.(cgi|shtml|phtml|php)$&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+        SSLOptions +StdEnvVars
+        &lt;span class="nt"&gt;&amp;lt;/FilesMatch&amp;gt;&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;lt;Directory&lt;/span&gt; &lt;span class="err"&gt;/usr/lib/cgi-bin&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+            SSLOptions +StdEnvVars
+        &lt;span class="nt"&gt;&amp;lt;/Directory&amp;gt;&lt;/span&gt;
+
+        BrowserMatch &amp;quot;MSIE [2-6]&amp;quot; \
+            nokeepalive ssl-unclean- shutdown \
+            downgrade-1.0 force-response-
+    &lt;span class="nt"&gt;&amp;lt;/VirtualHost&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/IfModule&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Redirección permanente a virtualhost SSL&lt;/h2&gt;
+&lt;p&gt;Ahora debemos modificar nuestro archivo de virtualhost por defecto para que requiera siempre el uso de SSL&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo nano /etc/apache2/sites-available/000-default.conf
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Y debemos añadir la línea&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;VirtualHost&lt;/span&gt; &lt;span class="err"&gt;*:80&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    . . .
+    Redirect permanent &amp;quot;/&amp;quot; &amp;quot;https://dominio_o_IP&amp;quot;
+    . . .
+&lt;span class="nt"&gt;&amp;lt;/VirtualHost&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Prueba en un navegador web&lt;/h2&gt;
+&lt;p&gt;Ya solo nos quedaría reiniciar el servicio de Apache2 para aplicar todos los cambios&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo service apache2 restart
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Y en un navegador web cualquiera introducimos la siguiente dirección&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;https://dominio_o_IP
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Observaciones&lt;/h2&gt;
+&lt;p&gt;Hemos habilitado el uso de HTTP sobre SSL en el virtualhost por defecto de Apache2. Si necesitáis usar virtualhost distintos o no sabéis crear uno pasaos por nuestro tutorial &lt;strong&gt;Crear VirtualHost en Apache&lt;/strong&gt;&lt;/p&gt;</content><category term="apache2"></category><category term="ubuntu"></category><category term="server"></category><category term="ssl"></category><category term="configuración"></category><category term="https"></category><category term="http"></category></entry></feed>
